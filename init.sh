@@ -1,6 +1,7 @@
 #!/bin/sh
 
-wget https://launcher.mojang.com/v1/objects/c5f6fb23c3876461d46ec380421e42b289789530/server.jar 
+SERVER_JAR_URL=$(lynx -listonly -dump -nonumbers https://www.minecraft.net/en-us/download/server | grep server.jar)
+wget $SERVER_JAR_URL 
 
 mkdir uploadFolder/minecraft-server
 mv server.jar uploadFolder/minecraft-server

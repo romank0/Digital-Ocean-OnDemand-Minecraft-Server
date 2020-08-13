@@ -16,6 +16,9 @@ top_level_domain =
 // subdomain name of the server
 subdomain =
 
+// whitelisted users
+users = 
+
 // Instance Parameters find it in your doctl
 region =
 size =

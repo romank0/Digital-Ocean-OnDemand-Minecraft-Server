@@ -8,6 +8,7 @@ variable "size" {}
 
 variable "top_level_domain" {}
 variable "subdomain" {}
+variable "users" {}
 
 provider "digitalocean" {
   token = var.do_token
