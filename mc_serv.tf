@@ -1,6 +1,14 @@
+
+# Add an A record to the domain for mc-server droplet.
+resource "digitalocean_record" "subdomain" {
+  domain = var.top_level_domain
+  type   = "A"
+  name   = var.subdomain
+  value  = "${digitalocean_droplet.mc-server.ipv4_address}"
+}
 resource "digitalocean_droplet" "mc-server" {
   image = "docker-18-04"
-  name = "mc-server"
+  name = var.subdomain
   region = var.region
   size = var.size
   private_networking = true
