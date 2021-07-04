@@ -8,8 +8,13 @@ fi
 SERVER_JAR_URL=$1
 
 if [ "$SERVER_JAR_URL" == "" ]; then
-  echo "specify server jar url as parameter"
-  exit 1
+
+  SERVER_JAR_URL=$(curl -s 'https://www.minecraft.net/en-us/download/server' -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36'    -H 'accept-language: en-GB,en-US;q=0.9,en;q=0.8'   --compressed | grep server.jar | sed -e 's/.*<a href=["'"'"']//' -e 's/["'"'"'].*$//')
+
+  if [ "$SERVER_JAR_URL" == "" ]; then
+    echo "specify server jar url as a parameter"
+    exit 1
+  fi
 fi
 
 wget $SERVER_JAR_URL 
