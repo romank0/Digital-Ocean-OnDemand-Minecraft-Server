@@ -17,8 +17,10 @@ top_level_domain =
 subdomain =
 
 // whitelisted users
-users = 
+users = ['some-user-name', 'other-username']
 
-// Instance Parameters find it in your doctl
+ops = ['some-username']
+
+// Instance Parameters find it in `doctl compute size list`
 region =
 size =

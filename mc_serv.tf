@@ -36,10 +36,11 @@ resource "digitalocean_droplet" "mc-server" {
             "tar -xvzf minecraft-server.tar.gz",
             "cd minecraft-server",
             "docker-compose up -d",
-            "sleep 60",
+            "sleep 180",
             "docker-compose logs jre"
         ],
         formatlist("mcrcon -p %s \"whitelist add %s\"", "${var.rcon_pwd}", var.users),
+        formatlist("mcrcon -p %s \"op %s\"", "${var.rcon_pwd}", var.ops),
         [
             "dig +short myip.opendns.com @resolver1.opendns.com"
         ]

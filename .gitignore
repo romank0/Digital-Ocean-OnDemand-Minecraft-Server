@@ -5,3 +5,4 @@ terraform.tfvars
 terraform.tfstate*
 minecraft-server
 uploadFolder/minecraft-server.tar.gz
+.*.swp
